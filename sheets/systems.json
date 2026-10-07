@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "system": "runtime-systems",
+  "rows": [
+    {
+      "id": "host-entry",
+      "owner": "HollowDuckMod",
+      "host": "Hollow Knight",
+      "loader": "hk-modding-api",
+      "loaderVersion": "1.5.78.11833-77",
+      "loaderTargetGameVersion": "1.5.78.11833",
+      "installedGameVersion": "1.5.12620",
+      "runtimeCompatible": false,
+      "runtimeCompatibilityEvidence": "API v77 Constants.GAME_VERSION versus installed Hollow Knight Constants.GAME_VERSION; API-enabled isolated copy exits during MonoManager.ReloadAssembly",
+      "loaderAutoInstalledByMelty": true,
+      "modBase": "Modding.Mod",
+      "initializationHook": "Mod.Initialize",
+      "verified": true
+    },
+    {
+      "id": "duck-content-reader",
+      "owner": "DuckGameContent",
+      "rootDiscovery": "Steam registry install path + steamapps/libraryfolders.vdf + appmanifest_312530.acf",
+      "assetRoot": "Content",
+      "supportedAsset": "uncompressed XNB v5 Texture2DReader Color surface format",
+      "outputs": "runtime Unity Texture2D only",
+      "unsupportedContentBehavior": "show in-game Duck Game missing or unsupported notice; do not crash",
+      "packagesGameFiles": false,
+      "verified": true
+    },
+    {
+      "id": "movement-adapter",
+      "owner": "DuckController",
+      "hostHook": "ModHooks.HeroUpdateHook",
+      "hostBody": "HeroController.rb2d",
+      "collisionAuthority": "Hollow Knight Physics2D and existing scene colliders",
+      "sourceSheet": "player.json#duck-controller",
+      "verified": true
+    },
+    {
+      "id": "enemy-drop",
+      "owner": "WeaponDropService",
+      "hostHook": "ModHooks.OnReceiveDeathEventHook",
+      "dropSelection": "first not-yet-unlocked entry from weapons.json",
+      "dropLocation": "enemy death position in the current original Hallownest room",
+      "pickupPersistence": "unlock saved after pickup; do not modify Hollow Knight save files",
+      "verified": true
+    },
+    {
+      "id": "firearms",
+      "owner": "WeaponService",
+      "fireHook": "ModHooks.AttackHook",
+      "damageApi": "HealthManager.Hit(HitInstance)",
+      "input": "existing Hollow Knight attack binding",
+      "weaponDataSheet": "weapons.json",
+      "verified": true
+    },
+    {
+      "id": "armory-ui",
+      "owner": "ArmoryOverlay",
+      "openInput": "F2",
+      "selectionInput": "1 selects pistol; 2 selects shotgun when unlocked",
+      "scope": "overlay accessible in the current room; first slice does not force a scene transition",
+      "persistenceFile": "{localappdata}/HollowDuck/progress.json",
+      "verified": true
+    }
+  ]
+}

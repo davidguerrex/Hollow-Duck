@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "system": "player",
+  "sourceGame": {
+    "name": "Duck Game",
+    "steamAppId": "312530",
+    "installLookup": "Steam libraryfolders.vdf + appmanifest_312530.acf",
+    "class": "DuckGame.Duck",
+    "executableVersion": "1.0.0.0",
+    "steamBuildId": "8782838"
+  },
+  "hostGame": {
+    "name": "Hollow Knight",
+    "steamAppId": "367520",
+    "sceneAndCollisionSource": "player's installed Hollow Knight copy",
+    "controllerClass": "HeroController",
+    "body": "HeroController.rb2d"
+  },
+  "rows": [
+    {
+      "id": "duck-controller",
+      "input": "Hollow Knight's current remappable movement bindings",
+      "guestRunMax": 3.1,
+      "guestAccelerationPerTick": 0.55,
+      "guestJumpSpeed": -4.9,
+      "guestFriction": 0.25,
+      "guestHorizontalMax": 12.0,
+      "guestVerticalMax": 8.0,
+      "pixelsPerHostUnit": 32.0,
+      "hostAdaptationTickRateHz": 60.0,
+      "hostRunSpeed": 5.8125,
+      "hostJumpSpeed": 9.1875,
+      "hostAcceleration": 1.03125,
+      "guestTickModel": "DuckGame.Duck.Update is frame-based",
+      "hostMovementAdaptation": "scale Duck Game pixel speeds into Hollow Knight world units using Unity Time.deltaTime; retain host collision and gravity",
+      "hostReleaseFriction": "retain Hollow Knight release behavior for the first slice",
+      "sourceMembers": ["Duck._runMax", "Duck.JumpSpeed", "Duck.friction", "Duck.hMax", "Duck.vMax", "Duck.Update"],
+      "targetDamageWhenFalling": 0,
+      "verified": true
+    },
+    {
+      "id": "duck-visual",
+      "assetRelativePath": "Content/duck.xnb",
+      "xnbPlatform": "Windows",
+      "xnbVersion": 5,
+      "xnbCompressed": false,
+      "textureReader": "Microsoft.Xna.Framework.Content.Texture2DReader",
+      "surfaceFormatId": 0,
+      "surfaceFormat": "Color",
+      "sheetWidth": 192,
+      "sheetHeight": 192,
+      "frameWidth": 32,
+      "frameHeight": 32,
+      "initialFrameIndex": 0,
+      "runtimeSourceOnly": true,
+      "verified": true
+    }
+  ]
+}

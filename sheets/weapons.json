@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "system": "weapons",
+  "sourceGame": {
+    "name": "Duck Game",
+    "installLookup": "Steam libraryfolders.vdf + appmanifest_312530.acf",
+    "contentFolder": "Content",
+    "contentFormat": "XNA XNB v5, Windows, uncompressed Color textures"
+  },
+  "hostRules": {
+    "attackInput": "Hollow Knight Modding API ModHooks.AttackHook",
+    "collisionTarget": "Hollow Knight HealthManager.Hit(HitInstance)",
+    "targetDamage": 1,
+    "targetDamageIs": "prototype balance value, not a claim that the games use the same damage scale",
+    "projectileScale": "1 Duck Game pixel = 1/32 Hollow Knight world unit",
+    "spreadConversion": "(1 - source accuracy) * 20 degrees",
+    "reloadInput": "R",
+    "selectionInput": "Tab",
+    "verified": true
+  },
+  "rows": [
+    {
+      "id": "pistol",
+      "guestClass": "DuckGame.Pistol",
+      "ammoClass": "DuckGame.AT9mm",
+      "texturePath": "Content/pistol.xnb",
+      "textureSize": [72, 10],
+      "magazine": 9,
+      "bulletSpeed": 28.0,
+      "rangePixels": 250.0,
+      "accuracy": 0.75,
+      "impactPower": 2.0,
+      "kickForce": 3.0,
+      "pelletsPerFire": 1,
+      "hostCooldownSeconds": 0.24,
+      "hostDamagePerHit": 1,
+      "hostProjectileRange": 7.8125,
+      "hostProjectileSpeed": 52.5,
+      "pickupUnlockOrder": 1,
+      "sourceMembers": ["DuckGame.Pistol.Pistol", "DuckGame.AT9mm.AT9mm", "DuckGame.Gun.Fire"],
+      "verified": true
+    },
+    {
+      "id": "shotgun",
+      "guestClass": "DuckGame.Shotgun",
+      "ammoClass": "DuckGame.ATShotgun",
+      "texturePath": "Content/shotgun.xnb",
+      "textureSize": [32, 32],
+      "magazine": 2,
+      "bulletSpeed": 28.0,
+      "rangePixels": 115.0,
+      "accuracy": 0.6,
+      "rangeVariationPixels": 10.0,
+      "impactPower": 2.0,
+      "kickForce": 4.0,
+      "pelletsPerFire": 6,
+      "manualLoad": true,
+      "hostCooldownSeconds": 0.72,
+      "hostDamagePerPellet": 1,
+      "hostProjectileRange": 3.59375,
+      "hostProjectileSpeed": 52.5,
+      "pickupUnlockOrder": 2,
+      "sourceMembers": ["DuckGame.Shotgun.Shotgun", "DuckGame.ATShotgun.ATShotgun", "DuckGame.Gun.Fire"],
+      "verified": true
+    }
+  ]
+}

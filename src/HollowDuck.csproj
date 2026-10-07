@@ -1,0 +1,52 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <AssemblyName>HollowDuck</AssemblyName>
+    <RootNamespace>HollowDuck</RootNamespace>
+    <Version>0.1.0</Version>
+    <LangVersion>latest</LangVersion>
+    <DebugType>portable</DebugType>
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <HollowKnightInstall Condition="'$(HollowKnightInstall)' == ''">$(HOLLOW_KNIGHT_PATH)</HollowKnightInstall>
+    <ModdingApiPath Condition="'$(ModdingApiPath)' == ''">$(HOLLOW_KNIGHT_API_PATH)</ModdingApiPath>
+    <HollowKnightManagedPath Condition="'$(HollowKnightManagedPath)' == ''">$(HollowKnightInstall)\hollow_knight_Data\Managed</HollowKnightManagedPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>$(ModdingApiPath)\Assembly-CSharp.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Assembly-CSharp-firstpass">
+      <HintPath>$(HollowKnightManagedPath)\Assembly-CSharp-firstpass.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>$(HollowKnightManagedPath)\UnityEngine.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>$(HollowKnightManagedPath)\UnityEngine.CoreModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.IMGUIModule">
+      <HintPath>$(HollowKnightManagedPath)\UnityEngine.IMGUIModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.InputLegacyModule">
+      <HintPath>$(HollowKnightManagedPath)\UnityEngine.InputLegacyModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.JSONSerializeModule">
+      <HintPath>$(HollowKnightManagedPath)\UnityEngine.JSONSerializeModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.Physics2DModule">
+      <HintPath>$(HollowKnightManagedPath)\UnityEngine.Physics2DModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\sheets\player.json" Link="player.json" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="..\sheets\weapons.json" Link="weapons.json" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>

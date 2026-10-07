@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "system": "world-and-progression",
+  "hostGame": "Hollow Knight",
+  "rows": [
+    {
+      "id": "hallownest-world",
+      "source": "player's Hollow Knight install and current save",
+      "areas": "the original Hallownest areas and rooms available in that save",
+      "enemies": "original Hollow Knight enemies and collision behavior",
+      "newMapFiles": [],
+      "sceneTransitionChanges": false,
+      "verified": true
+    },
+    {
+      "id": "weapon-progression",
+      "firstDrop": "Pistol",
+      "secondDrop": "Shotgun",
+      "dropTrigger": "first eligible enemy death while the next weapon remains locked",
+      "unlockTrigger": "player touches the weapon pickup",
+      "menuContent": "locked/unlocked state and current selection for each weapon row",
+      "startLocation": "use current Hollow Knight save location; armory overlay opens there",
+      "persistentState": "local progress.json outside the Hollow Knight save folder",
+      "verified": true
+    },
+    {
+      "id": "play-mode",
+      "players": 1,
+      "online": false,
+      "cooperative": false,
+      "officialDuckGameOnlineServices": false,
+      "verified": true
+    }
+  ]
+}
